@@ -1,0 +1,13 @@
+<body>
+<div class="prod-links">
+	<p>Hello, {{user.firstname}} </p>
+	<ul>
+		<li><a [routerLink]="['browse']">The Collection</a></li>
+		<li class="bar"> | </li>
+		<li><a [routerLink]="['listings']">My Listings</a></li>
+		<li class="bar"> | </li>
+	</ul>	
+	<button (click)="logout()">Log Out</button>
+</div>
+</body>
+<router-outlet></router-outlet>

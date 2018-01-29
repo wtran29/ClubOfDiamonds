@@ -1,0 +1,22 @@
+{
+  "name": "market",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular2-fontawesome": "^0.9.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "font-awesome": "^4.7.0",
+    "mongoose": "^5.0.0-rc2"
+  }
+}

@@ -1,0 +1,193 @@
+<div class="container">
+	<fieldset class="random">
+		<div class="row">
+			<div class="col-md-6"> 
+				<div class="featured"><span class="ribbon-text">Featured Luxury of the Moment</span></div>
+			</div>
+		</div>
+		<div class="random-section">
+			<div class="img col-sm-12">
+				<img [src]="featuredProduct.image" width="400">
+			</div>
+			<div class="featured-prod">
+				<div class="title-section">
+					<p class="title">You are looking at a </p>
+					<p class="featured-title">{{featuredProduct.title}}</p>
+				</div>
+				<p class="highlights"><i class="fa fa-hashtag"></i> {{featuredProduct.highlights | uppercase}}</p>
+				<p class="desc">{{featuredProduct.description}}</p>
+				<h2 class="price">Valued at: {{featuredProduct.price | currency : fractionalized}}</h2>
+				<p class="location">from {{featuredProduct.location}}</p>
+			</div>
+		</div>	
+	</fieldset>
+	<div class="body-section">
+		<div class="login-section">
+			<a name="login"></a>
+			<div class="login">
+				<form (submit)="login()">
+					<h2>Sign in to your Club of Diamonds Account</h2>
+					<div class="border">
+						<input type="text" name="email" placeholder="E-Mail" 
+							required
+							class="form-control" 
+							[(ngModel)]="user.email"
+							#email = "ngModel"
+							/>
+						<input type="password" name="password" placeholder="Password" 
+							required
+							class="form-control" 
+							[(ngModel)]="user.password"
+							#password = "ngModel"
+							/>
+						<input class="login" type="submit" value="Log Me In">
+						<div *ngIf="loginErr"><p class="error">{{ loginErr }}</p></div>
+						<div class="login-line"><hr></div>
+						<div class="reset"><span>Help: </span><a href="#">Reset Your Password</a></div>
+					</div>
+				</form>
+			</div>
+			<br>
+			<hr>
+			<a name="trends"></a>
+			<div class="story">
+				<h2>Latest Stories</h2>
+				<hr>
+				<p class="headline">2018 looks like a boom time for billionaires</p>
+				<p class="summary">CNBC's Robert Frank takes a look at what to expect in the world of luxury next year, including Jeff Bezos' ranking as the wealthiest person in the world.</p>
+				<iframe src="https://player.cnbc.com/p/gZWlPC/cnbc_global?playertype=synd&byGuid=3000681775" width="480" height="280" type="application/x-shockwave-flash" allowFullScreen="true" bgcolor="#131313"></iframe>
+				<p><a href="https://www.cnbc.com/video/2017/12/26/2018-boom-time-for-billionaires.html?__source=cnbcembedplayer">Here's why 2018 looks like a boom time for billionaires</a> from <a href="//www.cnbc.com/?__source=cnbcembedplayer">CNBC</a>.</p>
+			</div>
+		</div>
+		<div class="register">
+			<div class="reg-border">
+				<p>Don't have an account yet? Join the Club!</p>
+				<button class="btn btn-info btn-lg bottom-bar hover-border" (click)="openModal()">Register Here <i class="fa fa-angle-double-down" aria-hidden="true"></i></button>
+			</div>
+			<div class="backdrop" [ngStyle]="{'display':display}"></div>
+			<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<div><button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button></div>
+						</div>
+						<div class="modal-title">
+							<p class="signup">Sign up <span>Become a Club of Diamonds Member now and live your life in luxury!</span></p>
+						<hr>
+						</div>
+						<div class="modal-body">
+
+							<div *ngIf="regErr"><p class="error">{{ regErr }}</p></div>
+							<p class="details">Your personal details</p>
+							<form (submit)="register()" #formRegister='ngForm'>
+								<div *ngIf='firstname.errors || lastname.errors && (firstname.dirty || firstname.pristine)'>Please include your first and last name.</div>
+								<input type="text" name="firstname" class="form-control" 
+								  required
+								  minlength="2"
+								  maxlength="24"
+								  placeholder="First Name" 
+								  [(ngModel)]='newUser.firstname'
+								  #firstname = 'ngModel'
+								/>
+								<input type="text" name="lastname" class="form-control"
+								  required
+								  minlength="2"
+								  maxlength="24"
+								  placeholder="Last Name" 
+								  [(ngModel)]='newUser.lastname'
+								  #lastname = 'ngModel'
+								/>
+								<p class="details">Salutation</p>
+							    <div *ngIf="gender.errors && (gender.dirty || gender.untouched)">Please choose one</div>
+								<label for="gender"><input type="radio" name="gender" class="form-control" value="male"
+							      required
+							      [(ngModel)]='newUser.gender'
+							      #gender="ngModel"
+							    />Mr.</label>
+							    <label for="gender"><input type="radio" name="gender" class="form-control" value="female"
+							      required 
+							      [(ngModel)]='newUser.gender'
+							      #gender="ngModel"
+							    />Ms.</label>
+							    <p class="details">Contact Information</p>
+							    <div *ngIf="phone.errors || email.errors && (phone.dirty || phone.pristine)">Please enter your phone and email or your agent's.</div>
+							    <input type="agent" name="agent" placeholder="Name of Agent (optional)" class="form-control"
+							      [(ngModel)]='newUser.agent'
+							      #agent="ngModel"
+							    />
+							    <input type="tel" name="phone" placeholder="Cell Number: xxx-xxx-xxxx" class="form-control"
+							      required
+							      maxlength="13" 
+							      minlength="9" 
+							      pattern="^([0-9]{3}-[0-9]{3}-[0-9]{4})$" 
+							      [(ngModel)]='newUser.phone'
+							      #phone="ngModel"
+							    />
+							    <input type="text" name="email" placeholder="Email" class="form-control"
+							      required
+							      minlength="8"
+							      pattern='^([a-zA-Z0-9+._-]+@[a-zA-Z0-9+._-]+\.[a-zA-Z]+)$' 
+							      [(ngModel)]='newUser.email'
+							      #email='ngModel'
+							    />
+							    <div *ngIf="email.errors && (email.dirty || email.touched)">Email must follow format user@domain - ex.'jsmith123@example.com'</div>
+							    <p class="details">Create password</p>
+							    <div class="form-group">
+								    <input type="password" name="password" class="form-control" placeholder="Choose a Password" 
+								      required
+								      minlength="8" 
+								      pattern='^([a-zA-Z0-9@*#]{8,16})$'
+								      validateEqual="confirm"
+								      reverse="true"
+								      [(ngModel)]="newUser.password"
+								      #password="ngModel"
+								    />
+								    <div *ngIf="password.errors && (password.dirty || password.touched)">Must be at least 8 characters</div>
+								</div>
+							    <div class="form-group">
+								    <input type="password" name="confirm" class="form-control" placeholder="Confirm Password" 
+								      required 
+								      validateEqual="password"
+								      reverse="false"
+								      [(ngModel)]="newUser.confirm"
+								      #confirm="ngModel"
+								    />
+							    	<div *ngIf="confirm.errors && (confirm.dirty || confirm.touched)">Passwords do not match</div>
+								</div>
+							    <div>
+							    	<p>By clicking Register, you agree to our <a href="#">Terms of Use</a> and that you have read our <a href="#">Privacy Policy</a></p>
+							    </div>
+							    <input class="reg-submit" type="submit" value="Register">
+							    <br>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<h2 class="reasons">Top Reasons to Join</h2>
+			<hr>
+			<h3>Stay Updated</h3>
+			<p>Get all the updates and the latest luxury items from around the world.</p>
+			<hr>
+			<h3>Professional Network</h3>
+			<p>List your items, buy and sell with affluent members from across the globe.</p>
+			<hr>
+			<h3>Affliates</h3>
+			<p>Work with our affliate members to expand your market or fund your purchases.</p>
+			<p>Below are a few of our members:</p>
+			<ul class="a1">
+				<li><img src="https://www.wired.com/images_blogs/underwire/images/2007/04/17/wired_logo.gif" alt="wired" width="100"></li>
+				<li><img src="https://walkman100.github.io/images/other/Bitcoin.png" alt="bitcoin" width="100"></li>
+				<li><img src="http://www.holloway-marketing.com/wp-content/uploads/2017/07/image.png" alt="dogecoin" width="100"></li>
+				<li><img src="http://is4.mzstatic.com/image/thumb/Purple111/v4/64/51/32/645132dd-7c2a-145b-021a-7e38b57e1085/source/1200x630bb.jpg" alt="blockstreet" width="100"></li>
+			</ul>
+			<ul class="a2">
+				<li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Exxon_Mobil_Logo.svg/2000px-Exxon_Mobil_Logo.svg.png" alt="exxon" width="100"></li>
+				<li><img src="http://byhula.com/wp-content/uploads/2016/10/complex1.png" alt="complex" width="100"></li>
+				<li><img src="https://vignette.wikia.nocookie.net/logopedia/images/6/60/Fortune-logo.png/revision/latest?cb=20140122165914" alt="fortune" width="100"></li>
+				<li><img src="https://www.sarkemedia.com/wp-content/uploads/2017/06/Forbes-logo-blogging-challenge.jpg" alt="forbes" width="100"></li>
+			</ul>
+		</div>
+	</div>
+</div>

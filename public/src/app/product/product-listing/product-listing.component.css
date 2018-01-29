@@ -1,0 +1,204 @@
+.scroller {
+	overflow: scroll;
+	height: 655px;
+
+}
+
+div.create {
+	padding: 5px;
+	width: 980px;
+	display: inline-block;
+	margin:0 auto;
+	padding-left: 10px;
+
+}
+div.create input.list-form, div.update input.list-form {
+	width: 300px;
+}
+
+div.update {
+	padding: 5px;
+	width: 800px;
+	display: inline;
+	margin:0 auto;
+	padding-left: 10px;
+}
+
+label {
+	font-weight: bold;
+	font-family: sans-serif;
+}
+.italic{
+	font-style: italic;
+}
+p.italic{
+	text-align: right;
+}
+.img {
+	width: 310px;
+	display: inline-block;
+	vertical-align: top;
+	margin:0 auto;
+	padding: 10px;
+}
+
+.group-1 {
+	width: 300px;
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px;
+	margin:0 auto;
+	margin-bottom: 5px;
+}
+
+.group-2 {
+	width: 300px;
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px;
+	margin:0 auto;
+	margin-bottom: 5px;
+}
+div.container {
+	margin:0 auto;
+	
+}
+fieldset.list {
+	margin:0 auto;
+	border: 5px silver outset;
+	padding: 0;
+	background: #D3D3D3;
+	padding-bottom: 20px;
+	margin-top: 10px;
+
+}
+div.dback3 h2 {
+	text-align: center;
+	padding-top: 30px;
+	margin: 0 auto;
+
+}
+
+.dback3 {
+	background: url("/assets/dback3.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: 1;
+	color: ghostwhite;
+	height: 100px;
+	border: none;
+	text-shadow: 1px 1px black, 
+		1px 1px black, 
+		1px -1px black, 
+		-1px 1px black;
+	margin-bottom: 20px;
+}
+
+fieldset.wood {
+	background: url("/assets/wood.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: 1;
+	color: ghostwhite;
+	text-shadow: 1px 1px black, 
+		1px 1px black, 
+		1px -1px black, 
+		-1px 1px black;
+	margin: 0 auto;
+	border: 6px darkgoldenrod outset;
+	padding: 0px 40px 60px;
+	margin-top: 10px;
+}
+
+.in-field{
+	background: #202020;
+	border: 6px double darkgoldenrod;
+	padding: 0px 25px 0px 25px;
+}
+
+.list-submit {
+	width:100px;
+	height: 25px;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	background-color: #bf9b30;
+	border: 1px solid #bf9b30;
+	
+}
+
+.group-3 {
+	width: 400px;
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+	padding: 5px;
+	margin:0 auto;
+	margin-bottom: 5px;
+	
+}
+
+.img2 {
+	width: 400px;
+	display: inline-block;
+	vertical-align: top;
+	margin:0 auto;
+	padding: 5px;
+	margin-right: 10px;
+}
+.img-border{
+	box-shadow: 2px 2px 20px #ffbf00,
+		2px -2px 20px #ffbf00,
+		-2px 2px 20px #ffbf00,
+		2px 2px 20px #ffbf00;
+
+}
+.date {
+	padding-bottom: 10px;
+	margin: 0 auto;
+	text-align: right;
+	
+}
+
+.prodId {
+	padding-bottom: 5px;
+	margin: 0 auto;
+	
+}
+
+input.update {
+	width: 100px;
+	height: 25px;
+	border-radius: 5px;
+	background-color: #393939;
+	color: white;
+	font-weight: bold;
+	border: 1px solid #393939;
+	display: inline-block;
+	vertical-align: top;
+
+}
+button.delete {
+	width: 100px;
+	height: 25px;
+	border-radius: 5px;
+	color: white;
+	background-color: #940000;
+	font-weight: bold;
+	border: 1px solid #940000;
+	display: inline-block;
+
+}
+
+h2.preview {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	color: goldenrod;
+}
+
+.edit-labels{
+	color: goldenrod;
+}
