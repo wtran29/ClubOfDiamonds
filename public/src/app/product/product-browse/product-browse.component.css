@@ -1,18 +1,47 @@
-div.search-bar{
-	height: 24px;
-	color: gold;
-	text-shadow: 0px 1px black,
-		0px 1px goldenrod,
-		-1px 1px black,
-		0px -1px black;
-	font-weight: bold;
-	padding: 10px;
-	background-image: url("/assets/gold4.jpg");
-	border: 5px #ffbf00 outset;
+.container {
+	padding-top: 250px;
+	padding-bottom: 50px;
+	width: 95%;
+}
+.main {
+	padding-top: 50px;
+}
+.parallax3-container {
+	height: 800px;
+}
+.parallax3 {
+	background-image: url("/assets/boats.jpg");
+	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	padding-top: 15px;
-	min-width: 740px;
+	background-attachment: fixed;   
+	height: 800px;
+}
+.background{
+	background: rgba(50,50,50,0.7);
+	color: white;	
+	text-align: center;
+}
+
+.background h1{
+	padding-left: 10px;
+	padding-right: 10px;
+	color: deepskyblue;
+}
+.background h2{
+
+}
+
+.flex {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+div.search-bar{
+	
+	background: #B5A276;
+	padding: 10px;
+	border-radius: 10px;
 
 }
 
@@ -22,13 +51,24 @@ div.search-bar input {
 	display: inline-block;
 	vertical-align: top;
 	margin-left: 20px;
-	min-width: 500px;
-	margin-top: -5px;
-	border: 2px #a67c00 inset;
-	background: #ffdc73;
+	min-width: 350px;
+	
 
 }
+.gallery {
+	background: darkgrey;
+	border-radius: 5px;
+	padding-bottom: 5px;
+}
 
+.gallery h1 {
+
+	color: white;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	letter-spacing: -1px;
+}
 i.fa-diamond {
 	font-size: 50px;
 }
@@ -52,17 +92,9 @@ fieldset.field-container h1 {
 	padding-left: 20px;
 
 }
-.scroller {
-	overflow: scroll;
-	height: 470px;
-	min-width: 750px;
-	max-width: 970px; 
-	background-image: url("/assets/wood.jpg");
-	padding: 10px;
-	border:	3px inset;
-}
+
 div.cover{
-	background-image: url("/assets/boats.jpg");
+	
 	background-size: cover;
 	padding: 50px;
 	color: deepskyblue;
@@ -94,55 +126,62 @@ fieldset.collection {
 	margin-bottom: 10px;
 	padding-bottom: 20px;
 }
+.fit {
+	display: inline-block;
+}
 
 p.date {
 	margin: 0 auto;
-	text-align: right;
 	font-style: italic;
 	padding-bottom: 10px;
 	font-size: 15px;
-	color: lightsteelblue;
+	color: white;
+	
+	padding-left: 15px;
 
 }
+.section {
+	background: black;
+	border-radius: 5px;
+	max-width: 300px;
+	margin: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	display: inline-block;
 
+}
 div.section img {
-	box-shadow: 2px 2px 20px #ffbf00,
-		2px -2px 20px #ffbf00,
-		-2px 2px 20px #ffbf00,
-		2px 2px 20px #ffbf00;
+	max-width: 300px;
+	width: 100%;
 }
 
 h3.title {
 	color: deepskyblue;
+	padding-left: 15px;
+	display: inline-block;
+	margin: 0 auto;
+	letter-spacing: -1px;
 }
 
-h3.highlights {
+.highlights {
 	color: aliceblue;
 	text-shadow: 0px 0px 10px white;
 
 }
 
-h3.price {
-	color: #443717;
-	border: darkgoldenrod outset;
-	margin: 0 auto;
-	width: fit-content;
-	padding: 2px;
-	display: initial;
-	text-shadow: 0px 1px gold, 1px 0px gold;
-	background: goldenrod;
-	padding-left: 5px;
-	padding-right: 5px;
+.price {
+	background: rgba(50,50,50,0.7);
+	padding: 8px!important;
+	color: white;
+	font-size: large;
 }
 
-p.description {
-	font-family: monospace;
-	color: gainsboro;
-}
+
 
 p.location {
 	font-style: italic;
-	color: cornsilk;
+	color: deepskyblue;
+
 }
 
 button.contact {
@@ -151,6 +190,7 @@ button.contact {
 	width: 80px;
 	height: 25px;
 	font-weight: bold;
+	border-radius: 10px;
 }
 
 button.delete {
@@ -159,14 +199,40 @@ button.delete {
 	width: 80px;
 	height: 25px;
 	font-weight: bold;
+	border-radius: 10px;
 }
-div.box1, div.box2{
-	display: inline-block;
-	vertical-align: top;
-	margin-left: 10px;
+
+.img-wrap {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 10px;
+}
+.fa-search {
+	font-size: large;
+}
+.description {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(29, 106, 154, 0.72);
+	color: #fff;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .2s, 
+	visibility .2s;
+	padding: 0px 5px 0px 5px;
+	text-align: left;
+}
+
+.img-wrap:hover .description{
+	visibility: visible;
+	opacity: 1;
 }
 div.box1{
-	margin-top: 10px;
+	text-align: center;
 }
 div.box2 {
 	width: 350px;
@@ -175,7 +241,7 @@ div.box2 {
 
 
 div.modal-header {
-	text-align: left;
+	text-align: center;
 	margin: 0 auto;
 }
 
@@ -203,24 +269,17 @@ div.modal-title hr {
 	margin-left: 5px;
 	margin-right: 5px;
 }
-button.close {
-	background-color: #BEAB80;
-	border:none;
-	border-radius: 50%;
-	color: white;
-}
 
-div.modal {
-	border: 5px double silver;
+div.modal-content {
 	padding: 5px;
 	background: url("/assets/contact.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	position: absolute;
 	width: 350px;
-	/*position: fixed;
-	bottom: 100px;
-	width: 300px;*/
+	position: fixed;
+	bottom: 11px;
+	left: 54px;
+
 }
 
 div.modal-body h3, div.modal-body p {

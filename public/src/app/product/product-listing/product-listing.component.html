@@ -1,146 +1,160 @@
-<div class="container">
-	<fieldset class="list">
-		<div class="dback3"><h2>List Your Valuables Here</h2></div>
-		<div class="create">
-			<form (submit)="create(); dataForm.reset()" #dataForm="ngForm">
-				<div class="img">
-					<label>Upload your image here</label>
-					<br>
-					<div class="italic" *ngIf='image.errors && (image.dirty || image.pristine)'>Tip to add image: Hold shift, Right click on your image, click on copy as path, Paste to form below </div>
-					<img src="{{ newProduct.image }}" alt="" width="310">
-					<input class="list-form" type="text" name="image" placeholder="Type in link to add image"
-						required
-						[(ngModel)]="newProduct.image"
-						#image='ngModel' 
-					/>
-				</div>
-				<div class="group-1">
-					<label>Title of item or service</label>
-					<br>
-					<input class="list-form" type="text" name="title" placeholder="Name of brand, item, service" 
-						required
-						maxlength="150" 
-						minlength="1"
-						[(ngModel)]="newProduct.title"
-						#price="ngModel"
-					/>
-					<br><br>
-					<label>Major keys or buzz words</label>
-					<br>
-					<input class="list-form" type="text" name="highlights" placeholder="Key words for your item"
-						maxlength="25"
-						[(ngModel)]="newProduct.highlights"
-						#highlights="ngModel"
-					/>
-					<br><br>
-					<label>Description </label>
-					<br>
-					<textarea type="text" name="description" row="60" cols="40" placeholder="Describe your product or service" 
-						required
-						maxlength="300"
-						[(ngModel)]="newProduct.description"
-						#description="ngModel"
-					>
-					</textarea>
-				</div>
-				<div class="group-2">
-					<label>How much is it worth? </label>
-					<br>
-					<input class="list-form" type="number" name="price" value="USD" placeholder="Price" 
-						required
-						min=1
-						[(ngModel)]="newProduct.price"
-						#price="ngModel"
-					/>
-					<br><br>
-					<label>Where will this be sold at?</label>
-					<br>
-					<div class="italic" *ngIf='location.errors && (location.dirty || location.pristine)'>Please provide city/state/zip.</div>
-					<input class="list-form" type="text" name="location" placeholder="Enter city, state, zip" 
-						required
-						minlength="3"
-						[(ngModel)]="newProduct.location"
-						#location="ngModel"
-					/>
-					<br><br>
+<body>
+	<div class="container">
+		<h1 class="preview">Create Your Listings</h1>
+		<p>This is page is where you are able to create your listings and make any updates necessary.</p>
+		<div class="listings">
+			<h2>List Your Valuables Here</h2>
+			<div class="create">
+				<form (submit)="create(); dataForm.reset()" #dataForm="ngForm">
+					<div class="flex">
+						<div class="img">
+							<label>Upload Your Image Here</label>
+							<br>
+							<div class="italic" *ngIf='image.errors && (image.dirty || image.pristine)'>Tip to add image: Hold shift, Right click on your image, click on copy as path, Paste to form below </div>
+							<img src="{{ newProduct.image }}" alt="" width="310">
+							<input class="list-form" type="text" name="image" placeholder="Type in link to add image"
+								required
+								[(ngModel)]="newProduct.image"
+								#image='ngModel' 
+							/>
+						</div>
+						<div class="section">
+							<div class="item">
+								<label>Item / Service</label>
+								<br>
+								<input class="list-form" type="text" name="title" placeholder="Name of brand, item, service" 
+									required
+									maxlength="150" 
+									minlength="1"
+									[(ngModel)]="newProduct.title"
+									#price="ngModel"
+								/>
+							</div>
+							<br>
+							<div class="word">
+								<label>Major Keys / Buzz Words</label>
+								<br>
+								<input class="list-form" type="text" name="highlights" placeholder="Key words for your item"
+									maxlength="25"
+									[(ngModel)]="newProduct.highlights"
+									#highlights="ngModel"
+								/>
+							</div>
+							<br>
+							<div class="desc">
+								<label>Description </label>
+								<br>
+								<textarea type="text" name="description" row="60" cols="40" placeholder="Describe your product or service" 
+									required
+									maxlength="300"
+									[(ngModel)]="newProduct.description"
+									#description="ngModel"
+								></textarea>
+							</div>
+							<br>
+						</div>
+						<div class="section2">
+							<div class="price">
+								<label>List Price </label>
+								<br>
+								<input class="list-form" type="number" name="price" value="USD" placeholder="Price" 
+									required
+									min=1
+									[(ngModel)]="newProduct.price"
+									#price="ngModel"
+								/>
+							</div>
+							<br>
+							<div class="location">
+								<label>Location</label>
+								<br>
+								<div class="italic" *ngIf='location.errors && (location.dirty || location.pristine)'>Please provide city/state/zip.
+								</div>
+								<input class="list-form" type="text" name="location" placeholder="Enter city, state, zip" 
+									required
+									minlength="3"
+									[(ngModel)]="newProduct.location"
+									#location="ngModel"
+								/>
+							</div>
+						</div>
+					</div>
 					<input class="list-submit" type="submit" value="List Me">
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
-	</fieldset>
-	<fieldset class="wood">
-		<h2 class="preview">Preview and Update Listings</h2>
-		<div class="scroller">	
-			<div *ngFor="let product of products; let idx='index'">
-				<fieldset class="in-field">
-					<div class="update">
-						<p class="italic date">Listed on: {{product.createdAt | date: 'medium'}}</p>
-						<p class="prodId" style="font-weight: bold">#{{product.prodID}} {{product.title}}</p>
-						<form (submit)="update(idx)" #dataForm="ngForm">
+		<div class="update">
+			<h2 class="preview">Preview and Update Listings</h2>
+				<div class="flex">
+					<div *ngFor="let product of products; let idx='index'">
+						<div class="update-list">
+							<p class="italic date">Listed on: {{product.createdAt | date: 'medium'}}</p>
+							<p class="prodId" style="font-weight: bold">#{{product.prodID}} {{product.title}}</p>
+							<form (submit)="update(idx)" #dataForm="ngForm">
 							<div class="img2">
-								<img class="img-border" src="{{ product.image }}" alt="image for {{ product.prodId}}" width="400px">
-								<br><br>
 								<label class="edit-labels">Image Upload </label>
 								<br>
 								<input class="list-form" type="text" name="image" 
-									required
-									[(ngModel)]="product.image"
-									#image="ngModel"
+								required
+								[(ngModel)]="product.image"
+								#image="ngModel"
 								/>
+								<br>
+								<img class="img-border" src="{{ product.image }}" alt="image for {{ product.prodId}}">
+								<h2>{{product.title}}</h2>
+								<h3>{{product.highlights}}</h3>
+								<p>{{product.description}}</p>
+								<h3>{{product.price | currency : fractionalized}}</h3>
+								<p style="font-style: italic;">{{product.location}}</p>
 							</div>
 							<div class="group-3">
 								<label class="edit-labels">Title </label>
 								<br>
 								<input class="list-form" type="text" name="title" value="{{product.title}}"
-									required
-									[(ngModel)]="product.title"
-									#title="ngModel"
+								required
+								[(ngModel)]="product.title"
+								#title="ngModel"
 								/>
 								<br>
-								<p>You are looking at a <span style="font-weight: bold;">{{product.title}}</span></p>
 								<label class="edit-labels">Buzz Words</label>
 								<br>
 								<input class="list-form" type="text" name="highlights" placeholder="key words for your item"
-									maxlength="25"
-									[(ngModel)]="product.highlights"
-									#highlights="ngModel"
+								maxlength="25"
+								[(ngModel)]="product.highlights"
+								#highlights="ngModel"
 								/>
 								<br>
-								<p>{{product.highlights}}</p>
 								<label class="edit-labels">Description </label>
 								<br>
 								<textarea type="text" name="description" row="60" cols="40" value="{{product.description}}"
-									required
-									[(ngModel)]="product.description"
-									#description="ngModel"
+								required
+								[(ngModel)]="product.description"
+								#description="ngModel"
 								></textarea>
-								<br>
-								<p>{{product.description}}</p>
 								<label class="edit-labels">Price</label>
 								<br>
 								<input class="list-form" type="number" name="price" value="{{product.price}}"
-									required
-									[(ngModel)]="product.price"
-									#price="ngModel"
+								required
+								[(ngModel)]="product.price"
+								#price="ngModel"
 								/>
 								<br>
-								<h3>Valued at: {{product.price | currency : fractionalized}}</h3>
 								<label class="edit-labels">Location </label>
 								<br>
 								<input class="list-form" type="text" name="location" value="{{product.location}}"
-									required
-									[(ngModel)]="product.location"
-									#location="ngModel"
+								required
+								[(ngModel)]="product.location"
+								#location="ngModel"
 								/>
 								<br>
-								<p style="font-style: italic;">from {{product.location}}</p>
-								<input class="update" type="submit" value="UPDATE">
-						<button class="delete" (click)="delete(idx)">delete</button>
+								<br>
+								<input class="update-button" type="submit" value="UPDATE">
+								<button class="delete" (click)="delete(idx)">delete</button>
 							</div>
 						</form>
 					</div>
-				</fieldset>
+				</div>
 			</div>
 		</div>
-	</fieldset>
-</div>
+	</div>
+<body>

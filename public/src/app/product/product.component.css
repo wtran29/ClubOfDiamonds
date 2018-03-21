@@ -22,10 +22,7 @@ p {
 	padding-top: 15px;
 	padding-left: 20px;
 	color: white;
-	text-shadow: 1px 2px 1px black,
-		1px -1px 0 #000,
-    	-1px 1px 0 #000,
-    	1px 1px 0 #000;
+	
 }
 
 
@@ -33,21 +30,25 @@ p {
 .prod-links {
 	display: inline;
 	padding-left: 20px;
-
+	background: #393939;
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: 1;
+	margin: 0 auto;
+	height: 45px;
+	margin-top: 70px;
+	position: fixed;
+	width: 100%;
 }
 
 ul li a{
-	/*font-family: sans-serif;*/
-	/*font-size: 15px;*/
 	border-bottom: none!important;
 }
 
 ul li a:hover{
-	border-bottom: 3px solid #3366CC!important;
-	text-shadow: 1px 1px 0px black,
-		1px -1px 0px black,
-    	-1px 1px 8px white,
-    	1px 1px 8px white;
+	border-bottom: 3px solid #BEAB80!important;
+	color: white;
+    text-decoration: none;
 }
 
 a {
@@ -88,13 +89,23 @@ button {
 	
 }
 
-body {
-	background: url("/assets/dback4.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	z-index: 1;
-	margin: 0 auto;
-	height: 45px;
-	margin-left: -10px;
-	margin-right: -10px;
+.nav-bar {
+	display: none;
+}
+@media only screen and (max-width: 480px) {
+	.prod-links {
+		font-size: small;
+		padding-left: 0px!important;
+		margin-top: 100px;
+	}
+	button {
+		width: 70px;
+	}
+
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+	.prod-links {
+		margin-top: 100px;
+		
+	}	
 }

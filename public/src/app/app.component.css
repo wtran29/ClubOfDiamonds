@@ -1,21 +1,24 @@
 ul li {
 	list-style: none;
 	display: inline-block;
+	vertical-align: top;
 }
 
 ul {
 	margin:0 auto;
-	/*text-align: left;*/
 	padding-left:0px;
 }
 
 div.top-bar{
-	display: inline;
-	margin: 5px;
-	width: 100%;
+	background: white;
 	
 }
+.container {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 90%;
 
+}
 i.fa-diamond {
 	font-size: 50px;
 }
@@ -28,9 +31,6 @@ h1, p, div.link-group ul {
 	
 }
 
-h1 {
-	padding-left: 50px;
-}
 
 p {
 	padding: 5px;
@@ -45,13 +45,23 @@ p {
 }
 ul.top-links {
 	padding-top:28px;
-	text-align: right;
-	/*padding-left: 150px;*/
+	float: right;
+
 }
 
-/*div.top-bar ul.top-links li a{
-	text-align: right;
-}*/
+.bottom-links {
+	float: right;
+	
+}
+.copyright {
+	margin-top: 11em;
+	float: right;
+}
+ul.bottom-links li{
+	padding: 5px;
+
+}
+
 
 a {
 	text-decoration: none;
@@ -66,22 +76,51 @@ ul.top-links li a{
 	font-family: sans-serif;
 	font-size: 15px;
 	border-bottom: 3px solid white!important;
+
 }
 
 ul.top-links li a:hover{
 	border-bottom: 3px solid #BEAB80!important;
+	text-decoration: none;
+}
+.bottom {
+	background: #393939;
+	color: white;
+	padding-bottom: 20px;
+
+}
+.bottom li {
+	list-style: none;
+	color: white;
 }
 
+.bottom li a {
+	color: grey;
+}
 .nav-bar {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	background: #393939;
 	color: white;
-	margin-top:5px;
-	margin-left: -10px;
-	margin-right: -10px;
 	padding-left: 25px;
+	margin-bottom: 0;
+	margin-top: 60px;
+	position: fixed;
+	width: 100%;
+}
 
+.navbar {
+	border: none!important;
+
+}
+.find {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 50px;
+}
+.site {
+	display: inline-block;
+	vertical-align: top;
 }
 
 .nav-bar li a {
@@ -92,3 +131,77 @@ ul.top-links li a:hover{
 
 }
 
+.footer-bar {
+	background: black;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: white;
+}
+.footer-bar p {
+	padding-top: 5px;
+}
+.footer-bar input {
+	color: inherit;
+}
+.newsletter {
+	border-radius: 5px;
+	background: #BEAB80;
+	border: none;
+	width: 100px;
+}
+
+@media only screen and (max-width: 480px) {
+
+	h1, i {
+		font-size: 2em;
+		letter-spacing: -1px;
+	}
+
+	.nav-bar li a{
+		font-size: 1em;
+	}
+
+	.navbar-header {
+		text-align: center;
+		padding-top: 5px;
+	}
+	.bottom-links {
+		padding-top: 10px!important;
+		float: none!important;
+		text-align: center!important;
+	}
+	.footer-bar {
+		font-size: small;
+	}
+
+	.footer-bar p {
+		text-align: inherit;
+		display: inherit;
+	}
+	.newsletter {
+		width: 60px;
+	}
+	.bottom {
+		padding-top: 10px!important;
+		float: none!important;
+	}
+	.copyright {
+		margin-top: 1em;
+		
+	}
+	.find {
+		margin-left: 30px;
+	}
+	ul.bottom-links li {
+		padding: 4px;
+	}
+	
+}
+@media (max-width: 767px) {
+	.top-links {
+		padding-top: 10px!important;
+		float: none!important;
+		text-align: center!important;
+	}	
+}
+	

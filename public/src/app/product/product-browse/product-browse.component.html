@@ -1,56 +1,69 @@
-<div class="browse-container">
-	<div class="cover">
-		<h1><i class="fa fa-diamond"></i> Club of Diamonds <i class="fa fa-diamond"></i></h1>
-		<h2>Exclusive Collection</h2>
-	</div>
-	<div class="search-bar">
-		<label>24k Gold Search Bar</label>
-		<input type="text" id="search" name="searchBar" class="searchBar" placeholder="Type here to search by title, key words or location" [(ngModel)]="searchStr">
-	</div>
-	<fieldset class="field-container">
-		<h1>The Gallery</h1>
-		<div class="scroller">
-			<div class="product" *ngFor="let product of allProducts | filter:searchStr">
-				<fieldset class="collection">
-					<p class="date">Listed on: {{ product.createdAt | date: 'short' }}</p>
-					<div class="section">
-						<div class="box1">
-							<img src="{{ product.image }}" width="300px">
+<body>
+	<div class="parallax3-container">
+		<div class="parallax3">
+			<div class="mask rgba-white-light">
+				<div class="container flex-center text-center">
+					<div class="row mt-5">
+						<div class="col-md-12 wow fadeIn mb-3">
+							<div class="background display-1 mb-2 wow fadeInDown fit" data-wow-delay="0.3s">
+								<h1><i class="fa fa-diamond"></i> Club of Diamonds</h1>
+								<h2>Exclusive Collection</h2>
+							</div>
 						</div>
-						<div class="box2">
-							<h3 class="title">{{ product.title }}</h3>
-							<h3 class="highlights">{{ product.highlights }}</h3>
-							<h3 class="price">{{ product.price | currency : fractionalize }}</h3>
-							
-							<p class="description">{{ product.description }}</p>
-							<p class="location">{{ product.location }}</p>
-							<button type="button" class="contact" (click)="getContact(product._user,product)" *ngIf="product._user != user">Contact</button>
-							<button class="delete" (click)="delete(product)" *ngIf="product._user == user">Delete</button>
-							<div width="260px" id="contactModal" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button class="close" aria-label="Close" (click)="closeModal()"><span aria-hidden="true">&times;</span></button>
-										</div>
-										<div class="modal-title">
-											<h3>Contact Info</h3>
-											<p style="color:black;">for the {{productInfo.title}} valued at {{productInfo.price | currency: fractionalize}}</p>
-											<hr>
-										</div>
-										<div class="modal-body">
-											<p style="font-weight:bold;">{{contact.firstname}} {{contact.lastname}}</p>
-											<p class="contact-font" *ngIf="contact.agent">Please contact <span>{{contact.agent}}</span> for more info.</p>
-											<p class="contact-font">Phone:  <span>{{contact.phone}}</span></p>
-											<p class="contact-font">Email:  <span>{{contact.email}}</span></p>
-											<p class="contact-font">Member since:  <span>{{contact.createdAt | date: 'longDate'}}</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="browse-container">
+			<div class="container main">
+				<div class="search-bar">
+					<i class="fa fa-search"></i><input type="text" id="search" name="searchBar" class="searchBar" placeholder="Type here to search by title, key words or location" [(ngModel)]="searchStr">
+				</div>
+				<div class="gallery">
+					<h1>The Gallery</h1>
+				<div class="flex">
+					<div class="product" *ngFor="let product of allProducts | filter:searchStr">
+						<div class="section">
+								<h3 class="title">{{ product.title }}</h3>
+								<p class="date">Listed on: {{ product.createdAt | date: 'short' }}</p>
+								<div class="img-wrap">
+									<img class="img" src="{{ product.image }}" width="300" height="200">
+									<p class="description" >{{ product.description }}</p>
+								</div>
+							<div class="box1">
+								<h4 class="highlights">{{ product.highlights | uppercase }}</h4>
+								<div class="fit">
+									<h4 class="price">{{ product.price | currency : fractionalize }}</h4>
+								</div>
+								<p class="location">{{ product.location }}</p>
+								<button type="button" class="contact" (click)="getContact(product._user,product)" *ngIf="product._user != user">Contact</button>
+								<button class="delete" (click)="delete(product)" *ngIf="product._user == user">Delete</button>
+								<div width="260px" id="contactModal" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button class="close" aria-label="Close" (click)="closeModal()"><span aria-hidden="true">&times;</span></button>
+												<div class="modal-title">
+													<h3>Contact Info</h3>	
+												</div>
+												<p style="color:black;">for the {{productInfo.title}} valued at {{productInfo.price | currency: fractionalize}}</p>
+											</div>
+											<div class="modal-body">
+												<p style="font-weight:bold;">{{contact.firstname}} {{contact.lastname}}</p>
+												<p class="contact-font" *ngIf="contact.agent">Please contact <span>{{contact.agent}}</span> for more info.</p>
+												<p class="contact-font">Phone:  <span>{{contact.phone}}</span></p>
+												<p class="contact-font">Email:  <span>{{contact.email}}</span></p>
+												<p class="contact-font">Member since:  <span>{{contact.createdAt | date: 'longDate'}}</span></p>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</fieldset>
+				</div>
 			</div>
 		</div>
-	</fieldset>
-</div>
+	</div>
+</body>
